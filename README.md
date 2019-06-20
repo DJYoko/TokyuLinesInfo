@@ -1,4 +1,4 @@
-# TokyuLineInfo
+# TokyuLinesInfo
 Tokyu Lines information powered by Nuxt.js.
 
 ## web framework & libraries
@@ -8,5 +8,5 @@ Tokyu Lines information powered by Nuxt.js.
 
 ## source
 
-- GitHub https://github.com/DJYoko/TokyuLineInfo
-- Demo https://djyoko.github.io/TokyuLineInfo/
+- GitHub https://github.com/DJYoko/TokyuLinesInfo
+- Demo https://djyoko.github.io/TokyuLinesInfo

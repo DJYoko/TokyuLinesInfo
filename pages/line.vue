@@ -2,8 +2,8 @@
   <div>
     <h1>Line</h1>
     <ul>
-      <li v-for="station in stations" :key="station.id">
-    {{ station.name }}
+      <li v-for="lineStation in lineStations" :key="lineStation.id">
+    {{ lineStation.name }}
   </li>
     </ul>
   </div>
@@ -13,7 +13,7 @@
 export default {
   data: ()=> {
     return {
-      stations: [
+      lineStations: [
         {
           name: '渋谷',
           id: 'TY01',

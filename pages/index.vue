@@ -31,9 +31,9 @@ export default {
     };
   },
   mounted() {
-    console.log("run");
+    const self = this;
     axios.get("lines.json").then(response => {
-      this.lines = response.data;
+      self.lines = response.data;
     });
   }
 };
@@ -46,10 +46,10 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   h1 {
-    padding:240px 0;
-    color:#ffffff;
+    padding: 240px 0;
+    color: #ffffff;
     font-weight: 100;
-    font-size:5rem;
+    font-size: 5rem;
   }
 }
 </style>

@@ -46,7 +46,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   h1 {
-    padding: 240px 0;
+    padding: 180px 0;
     color: #ffffff;
     font-weight: 100;
     font-size: 5rem;

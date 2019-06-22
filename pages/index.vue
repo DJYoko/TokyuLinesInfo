@@ -1,12 +1,12 @@
 <template>
   <div>
+    <div class="container">
+    <h1 class="text-left">Tokyu Lines info</h1>
+    </div>
     <div
       id="mainvisual"
       :style="{ backgroundImage: `url(${backgroundImageUrl})` }"
     >
-      <div class="container">
-        <h1 class="text-center">Tokyu Lines info</h1>
-      </div>
     </div>
     <div class="line-list">
       <div class="container">
@@ -62,18 +62,19 @@ export default {
 
 <style scoped lang="scss">
 @import "~assets/variables";
+h1 {
+    color: $textColor;
+    font-weight: 100;
+    margin-bottom: 0;
+    padding: $itemMargin 0;
+  }
 #mainvisual {
   position: relative;
-  background-position: center;
+  background-position: center bottom;
   background-size: cover;
   background-repeat: no-repeat;
-  h1 {
-    padding: 180px 0;
-    color: #ffffff;
-    font-weight: 100;
-    font-size: 5rem;
-    margin-bottom: 0;
-  }
+  padding: 180px 0;
+  
 }
 .line-list {
   padding-top: $itemMargin * 2;

@@ -33,7 +33,7 @@
 
 <script>
 import axios from "axios";
-import backgroundImage from "~/assets/PAK86_touyokosentohome.jpg";
+import backgroundImage from "~/assets/pp_tamagawahukei_retouched.jpg";
 import lineListItem from "@/components/lineListItem.vue";
 export default {
   components: {

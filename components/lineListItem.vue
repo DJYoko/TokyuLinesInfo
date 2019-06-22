@@ -6,7 +6,7 @@
     >
       {{displayLabel}}
     </div>
-    <div>{{this.name}}</div>
+    <div class="detail-name">{{this.name}}</div>
 
   </div>
 </template>
@@ -35,14 +35,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '~assets/variables';
+@import "~assets/variables";
 .line-list-item {
   text-align: center;
-  border: 1px solid $borderColorGray;
 }
 
-.color-label{
-  padding:12px 0;
+.color-label {
+  padding: $itemMargin 0;
   font-weight: bold;
+  border-radius: $itemRadius $itemRadius 0 0;
+}
+.detail-name{
+  font-size:0.8em;
+  padding:$itemMargin 0;
+  background-color: #ffffff;
+  border-radius: 0 0 $itemRadius $itemRadius;
 }
 </style>

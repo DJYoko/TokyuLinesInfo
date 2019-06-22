@@ -8,21 +8,29 @@
         <h1 class="text-center">Tokyu Lines info</h1>
       </div>
     </div>
-    <ul>
-      <li
+    <div class="container">
+    <div class="row">
+      <div
+        class="col-6 col-sm-3"
         v-for="line in lines"
         :key="line.initial"
       >
-        {{ line.name }}
-      </li>
-    </ul>
+      <line-list-item :id=line.id :name=line.name :backgroundColor=line.backgroundColor :textColor=line.textColor></line-list-item>
+        
+      </div>
+    </div>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import backgroundImage from "~/assets/PAK86_touyokosentohome.jpg";
+import lineListItem from "@/components/lineListItem.vue";
 export default {
+  components: {
+    lineListItem,
+  },
   data: () => {
     return {
       backgroundImageUrl: backgroundImage,

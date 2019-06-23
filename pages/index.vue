@@ -12,12 +12,12 @@
       <div class="container">
         <div class="row">
           <div
-            class="col-6 col-sm-3 line-list-item-wrapper"
+            class="col-6 col-sm-3 col-lg-2 line-list-item-wrapper"
             v-for="line in lines"
             :key="line.initial"
           >
             <nuxt-link
-              to="/line"
+              :to="{path: '/line', query: { id:line.id } }"
               class="link-to-line"
             >
               <line-list-item

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-    <h1 class="text-left">Tokyu Lines info</h1>
+      <h1 class="text-left">Tokyu Lines info</h1>
     </div>
     <div
       id="mainvisual"
@@ -16,14 +16,18 @@
             v-for="line in lines"
             :key="line.initial"
           >
-            <line-list-item
-              :id=line.id
-              :name=line.name
-              :backgroundColor=line.backgroundColor
-              :textColor=line.textColor
-              @click="onLineItemClicked"
-            ></line-list-item>
-
+            <nuxt-link
+              to="/line"
+              class="link-to-line"
+            >
+              <line-list-item
+                :id=line.id
+                :name=line.name
+                :backgroundColor=line.backgroundColor
+                :textColor=line.textColor
+                @click="onLineItemClicked"
+              ></line-list-item>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -53,7 +57,7 @@ export default {
     });
   },
   methods: {
-    onLineItemClicked: (payload)=>{
+    onLineItemClicked: payload => {
       console.log(payload);
     }
   }
@@ -63,18 +67,17 @@ export default {
 <style scoped lang="scss">
 @import "~assets/variables";
 h1 {
-    color: $textColor;
-    font-weight: 100;
-    margin-bottom: 0;
-    padding: $itemMargin 0;
-  }
+  color: $textColor;
+  font-weight: 100;
+  margin-bottom: 0;
+  padding: $itemMargin 0;
+}
 #mainvisual {
   position: relative;
   background-position: center bottom;
   background-size: cover;
   background-repeat: no-repeat;
   padding: 180px 0;
-  
 }
 .line-list {
   padding-top: $itemMargin * 2;
@@ -84,5 +87,9 @@ h1 {
 }
 .line-list-item-wrapper {
   margin-bottom: $itemMargin * 2;
+}
+.link-to-line {
+  text-decoration: none;
+  color: $textColor;
 }
 </style>

@@ -1,10 +1,10 @@
 export default {
   getObjectById: (ary, id) => {
     if (typeof ary !== 'object') return null;
-    if (typeof id !== 'string' || typeof id !== 'number') return null;
+    if (typeof id !== 'string' && typeof id !== 'number') return null
 
     let returnObject = null
-    ary.array.forEach(item => {
+    ary.forEach(item => {
       if (item.id === id) {
         returnObject = item;
       }

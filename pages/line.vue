@@ -89,6 +89,6 @@ h1 {
   height: $itemMargin * 4;
   line-height: $itemMargin * 4;
   margin-bottom: 0;
-  padding: 0 $itemMargin 0 $itemMargin * 5;
+  padding: 0 $itemMargin 0 $itemMargin * 4;
 }
 </style>

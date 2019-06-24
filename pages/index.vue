@@ -20,13 +20,13 @@
               :to="{path: '/line', query: { id:line.id } }"
               class="link-to-line"
             >
-              <line-list-item
+              <line-unit
                 :id=line.id
                 :name=line.name
                 :backgroundColor=line.backgroundColor
                 :textColor=line.textColor
                 @click="onLineItemClicked"
-              ></line-list-item>
+              ></line-unit>
             </nuxt-link>
           </div>
         </div>
@@ -38,10 +38,10 @@
 <script>
 import axios from "axios";
 import backgroundImage from "~/assets/pp_tamagawahukei_retouched.jpg";
-import lineListItem from "@/components/lineListItem.vue";
+import lineUnit from "@/components/lineUnit.vue";
 export default {
   components: {
-    lineListItem
+    lineUnit
   },
   data: () => {
     return {

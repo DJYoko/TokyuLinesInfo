@@ -1,6 +1,6 @@
 <template>
   <div
-    class="line-list-item"
+    class="line-unit"
     @click="onClick"
   >
     <div
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "lineListItem",
+  name: "lineUnit",
   props: {
     name: String,
     id: String,
@@ -44,7 +44,7 @@ export default {
 
 <style scoped lang="scss">
 @import "~assets/variables";
-.line-list-item {
+.line-unit {
   text-align: center;
   cursor: pointer;
 }
@@ -63,7 +63,7 @@ export default {
   transition: $transition;
 }
 
-.line-list-item {
+.line-unit {
   &:hover {
     .color-label,
     .detail-name {

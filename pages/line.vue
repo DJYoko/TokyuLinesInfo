@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div class="line-title-block">
       <div
         class="line-symbol"
@@ -12,21 +12,33 @@
       </h1>
     </div>
 
-    <ul>
-      <li
+    <div class="row">
+      <div
+        class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-12"
         v-for="lineStation in lineStations"
         :key="lineStation.id"
       >
-        {{ lineStation.name }}
-      </li>
-    </ul>
+        <line-station-unit
+                :id=lineStation.id
+                :name=lineStation.name
+                :lineStationLabel=lineStation.lineStationLabel
+                :lineId=lineStation.lineId
+                :line=line
+                @click="onLineStationClicked"
+              ></line-station-unit>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import util from "~/plugins/util";
+import lineStationUnit from "@/components/lineStationUnit.vue";
 export default {
+  components: {
+    lineStationUnit
+  },
   data: () => {
     return {
       lineStations: [],
@@ -51,6 +63,11 @@ export default {
 
       console.log(this.line);
     });
+  },
+  methods: {
+    onLineStationClicked: (payload) =>{
+      console.log(payload);
+    }
   },
   computed: {
     displayLabel() {

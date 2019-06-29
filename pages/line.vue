@@ -19,13 +19,13 @@
         :key="lineStation.id"
       >
         <line-station-unit
-                :id=lineStation.id
-                :name=lineStation.name
-                :lineStationLabel=lineStation.lineStationLabel
-                :lineId=lineStation.lineId
-                :line=line
-                @click="onLineStationClicked"
-              ></line-station-unit>
+          :id=lineStation.id
+          :name=lineStation.name
+          :lineStationLabel=lineStation.lineStationLabel
+          :lineId=lineStation.lineId
+          :line=line
+          @click="onLineStationClicked"
+        ></line-station-unit>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@ export default {
     });
   },
   methods: {
-    onLineStationClicked: (payload) =>{
+    onLineStationClicked: payload => {
       console.log(payload);
     }
   },

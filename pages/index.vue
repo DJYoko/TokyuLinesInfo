@@ -32,6 +32,9 @@
         </div>
       </div>
     </div>
+    <div class="container">
+      <nuxt-link class="about-link" :to="{path: '/about'}">about</nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -91,5 +94,11 @@ h1 {
 .link-to-line {
   text-decoration: none;
   color: $textColor;
+}
+
+.about-link {
+  display: block;
+  padding: $itemMargin;
+  text-align: center;
 }
 </style>

@@ -1,0 +1,49 @@
+<template>
+  <div class="container">
+    <h4>web framework &amp; libraries</h4>
+    <ul style="padding-left:20px;">
+      <li>Vue <a
+          href="https://vuejs.org/"
+          target="_blank"
+        >https://vuejs.org/</a></li>
+      <li>Nuxt.js <a
+          href="https://nuxtjs.org/"
+          target="_blank"
+        >https://nuxtjs.org/</a></li>
+      <li>Bootstrap: <a
+          href="https://getbootstrap.com/"
+          target="_blank"
+        >https://getbootstrap.com/</a></li>
+    </ul>
+    
+    <hr>
+    <h4>visual materials</h4>
+    <ul style="padding-left:20px;">
+      <li>station &amp; line data: <a
+          href="https://www.tokyu.co.jp/"
+          target="_blank"
+        >www.tokyu.co.jp</a></li>
+      <li>photos: <a
+          href="https://www.pakutaso.com/20190537148post-21034.html"
+          target="_blank"
+        >PAKUTAO</a> (used in Top page main visual)</li>
+    </ul>
+    <hr>
+    <h4>source</h4>
+    <ul style="padding-left:20px;">
+      <li>GitHub <a
+          href="https://github.com/DJYoko/TokyuLinesInfo"
+          target="_blank"
+        >https://github.com/DJYoko/TokyuLinesInfo</a></li>
+    </ul>
+  </div>
+</template>
+
+<script>
+import backgroundImage from "~/assets/pp_tamagawahukei_retouched.jpg";
+export default {};
+</script>
+
+<style scoped lang="scss">
+@import "~assets/variables";
+</style>

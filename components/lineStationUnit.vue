@@ -40,7 +40,7 @@ export default {
     styles() {
       return {
         backgroundColor: this.line.backgroundColor,
-        color: this.line.textColor,
+        color: this.line.textColor
       };
     },
     displayLabel() {
@@ -55,26 +55,26 @@ export default {
 .line-station-unit {
   text-align: center;
   cursor: pointer;
-  position:relative;
+  position: relative;
   background-color: $backgroundColorGray;
   margin-bottom: 2px;
-  @media screen and (min-width:576px) {
-    margin-bottom:  $itemMargin;
+  @media screen and (min-width: 576px) {
+    margin-bottom: $itemMargin * 2;
   }
 }
 
 .color-label {
-  position:absolute;
+  position: absolute;
   top: $itemMargin;
   left: $itemMargin;
   width: $itemMargin * 3;
   height: $itemMargin * 2;
   line-height: $itemMargin * 2;
- }
+}
 .detail-name {
-  height: $itemMargin *4;
-  line-height: $itemMargin *4;
-  padding:0 0 0 $itemMargin *4;
+  height: $itemMargin * 4;
+  line-height: $itemMargin * 4;
+  padding: 0 0 0 $itemMargin * 4;
   border-radius: 0 0 $itemRadius $itemRadius;
   transition: $transition;
 }

@@ -53,22 +53,15 @@ export default {
   mounted() {
     const lineId = this.$route.query.id;
     axios.get(`./lineStation/${lineId}.json`).then(response => {
-      console.log(response);
       this.lineStations = response.data;
     });
 
     axios.get(`./lines.json`).then(response => {
       console.log(response.data, lineId);
       this.line = util.getObjectById(response.data, lineId);
-
-      console.log(this.line);
     });
   },
-  methods: {
-    onLineStationClicked: payload => {
-      console.log(payload);
-    }
-  },
+  methods: {},
   computed: {
     displayLabel() {
       return this.line.id.toUpperCase();
@@ -82,7 +75,6 @@ export default {
   }
 };
 </script>
-
 
 <style scoped lang="scss">
 @import "~assets/variables";

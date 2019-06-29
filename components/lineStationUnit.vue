@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="line-station-unit"
-    @click="onClick"
-  >
+  <div class="line-station-unit">
     <div
       class="color-label"
       :style="styles"
@@ -48,11 +45,6 @@ export default {
     },
     displayLabel() {
       return this.lineStationLabel.toUpperCase();
-    }
-  },
-  methods: {
-    onClick(event) {
-      this.$emit("click", this.lineStationLabel);
     }
   }
 };

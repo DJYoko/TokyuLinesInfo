@@ -54,7 +54,6 @@ export default {
 @import "~assets/variables";
 .line-station-unit {
   text-align: center;
-  cursor: pointer;
   position: relative;
   background-color: $backgroundColorGray;
   margin-bottom: 2px;

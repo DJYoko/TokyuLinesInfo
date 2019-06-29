@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <nuxt-link class="back-link" :to="{path: '/'}">back to home</nuxt-link>
     <h4>web framework &amp; libraries</h4>
     <ul style="padding-left:20px;">
       <li>Vue <a
@@ -46,4 +47,7 @@ export default {};
 
 <style scoped lang="scss">
 @import "~assets/variables";
+.back-link{
+  text-align: left;
+}
 </style>

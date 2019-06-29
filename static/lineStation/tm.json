@@ -1,1 +1,52 @@
-[]
+[
+    {
+        "stationId": 9,
+        "id": "TM01",
+        "name": "多摩川",
+        "lon": 139.668723,
+        "lat": 35.589591,
+        "lineId": "tm"
+    }, {
+        "stationId": 96,
+        "id": "TM02",
+        "name": "沼部",
+        "lon": 139.67326,
+        "lat": 35.582526,
+        "lineId": "tm"
+    }, {
+        "stationId": 97,
+        "id": "TM03",
+        "name": "鵜の木",
+        "lon": 139.680554,
+        "lat": 35.575452,
+        "lineId": "tm"
+    }, {
+        "stationId": 98,
+        "id": "TM04",
+        "name": "下丸子",
+        "lon": 139.685576,
+        "lat": 35.571397,
+        "lineId": "tm"
+    }, {
+        "stationId": 99,
+        "id": "TM05",
+        "name": "武蔵新田",
+        "lon": 139.692506,
+        "lat": 35.567806,
+        "lineId": "tm"
+    }, {
+        "stationId": 100,
+        "id": "TM06",
+        "name": "矢口渡",
+        "lon": 139.700389,
+        "lat": 35.562462,
+        "lineId": "tm"
+    }, {
+        "stationId": 94,
+        "id": "TM07",
+        "name": "蒲田",
+        "lon": 139.714626,
+        "lat": 35.561767,
+        "lineId": "tm"
+    }
+]

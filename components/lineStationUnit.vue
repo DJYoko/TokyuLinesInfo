@@ -16,14 +16,14 @@ export default {
   name: "lineStationUnit",
   props: {
     id: {
-      type: String,
+      type: Number,
       require: true
     },
     name: {
       type: String,
       require: true
     },
-    lineStationLabel: {
+    label: {
       type: String,
       require: true
     },
@@ -44,7 +44,7 @@ export default {
       };
     },
     displayLabel() {
-      return this.id.toUpperCase();
+      return this.label.toUpperCase();
     }
   }
 };

@@ -20,11 +20,10 @@
       >
         <line-station-unit
           :id=lineStation.id
-          :name=lineStation.name
-          :lineStationLabel=lineStation.lineStationLabel
+          :name=getStationName(lineStation.stationId)
+          :label=lineStation.label
           :lineId=lineStation.lineId
           :line=line
-          @click="onLineStationClicked"
         ></line-station-unit>
       </div>
     </div>
@@ -41,6 +40,7 @@ export default {
   },
   data: () => {
     return {
+      stations: [],
       lineStations: [],
       line: {
         backgroundColor: "",
@@ -52,12 +52,17 @@ export default {
   },
   mounted() {
     const lineId = this.$route.query.id;
-    axios.get(`./lineStation/${lineId}.json`).then(response => {
-      this.lineStations = response.data;
+    axios.get(`./lineStations.json`).then(response => {
+      this.lineStations = response.data.filter(station => {
+        return station.lineId === lineId;
+      });
+    });
+
+    axios.get(`./stations.json`).then(response => {
+      this.stations = response.data;
     });
 
     axios.get(`./lines.json`).then(response => {
-      console.log(response.data, lineId);
       this.line = util.getObjectById(response.data, lineId);
     });
   },
@@ -70,6 +75,17 @@ export default {
       return {
         backgroundColor: this.line.backgroundColor,
         color: this.line.textColor
+      };
+    },
+    getStationName() {
+      const self = this;
+      return stationId => {
+        const matchedStations = this.stations.filter(station => {
+          return station.id === stationId;
+        });
+        return matchedStations.length > 0
+          ? matchedStations[0].name
+          : "駅登録なし";
       };
     }
   }

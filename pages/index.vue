@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     onLineItemClicked: payload => {
-      console.log(payload);
+      // console.log(payload);
     }
   }
 };

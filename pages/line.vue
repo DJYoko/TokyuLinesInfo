@@ -20,7 +20,7 @@
       >
         <line-station-unit
           :id=lineStation.id
-          :name=getStationName(lineStation.stationId)
+          :name=getStationNameById(lineStation.stationId)
           :label=lineStation.label
           :lineId=lineStation.lineId
           :line=line
@@ -77,7 +77,7 @@ export default {
         color: this.line.textColor
       };
     },
-    getStationName() {
+    getStationNameById() {
       const self = this;
       return stationId => {
         const matchedStations = this.stations.filter(station => {

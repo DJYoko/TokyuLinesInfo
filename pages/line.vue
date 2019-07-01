@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <nuxt-link class="back-link" :to="{path: '/'}">back to home</nuxt-link>
     <div class="line-title-block">
       <div
         class="line-symbol"

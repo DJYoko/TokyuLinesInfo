@@ -17,7 +17,6 @@
             target="_blank"
           >https://getbootstrap.com/</a></li>
       </ul>
-
       <hr>
       <h4>visual materials</h4>
       <ul style="padding-left:20px;">

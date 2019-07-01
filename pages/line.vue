@@ -118,7 +118,6 @@ export default {
   border-radius: $itemRadius;
   text-align: center;
 }
-
 h1 {
   font-size: $itemMargin * 2;
   height: $itemMargin * 4;
@@ -126,7 +125,6 @@ h1 {
   margin-bottom: 0;
   padding: 0 $itemMargin 0 $itemMargin * 4;
 }
-
 .link-to-station {
   text-decoration: none;
   color: $textColor;

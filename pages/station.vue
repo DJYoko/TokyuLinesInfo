@@ -1,30 +1,29 @@
 <template>
-  <div class="container">
-    <nuxt-link
-      class="back-link"
-      :to="{path: '/'}"
-    >back to home</nuxt-link>
-    <h2>{{ name }}</h2>
-    <hr>
-    <div class="transfer">
-      <h3>乗り入れ路線</h3>
-      <div class="row">
-        <div
-          class="col-6 col-sm-3 col-lg-2 line-list-item-wrapper"
-          v-for="line in lines"
-          :key="line.initial"
-        >
-          <nuxt-link
-            :to="{path: '/line', query: { id:line.id } }"
-            class="link-to-line"
+  <div>
+    <back-link></back-link>
+    <div class="container">
+      <h2>{{ name }}</h2>
+      <hr>
+      <div class="transfer">
+        <h3>乗り入れ路線</h3>
+        <div class="row">
+          <div
+            class="col-6 col-sm-3 col-lg-2 line-list-item-wrapper"
+            v-for="line in lines"
+            :key="line.initial"
           >
-            <line-unit
-              :id=line.id
-              :name=line.name
-              :backgroundColor=line.backgroundColor
-              :textColor=line.textColor
-            ></line-unit>
-          </nuxt-link>
+            <nuxt-link
+              :to="{path: '/line', query: { id:line.id } }"
+              class="link-to-line"
+            >
+              <line-unit
+                :id=line.id
+                :name=line.name
+                :backgroundColor=line.backgroundColor
+                :textColor=line.textColor
+              ></line-unit>
+            </nuxt-link>
+          </div>
         </div>
       </div>
     </div>

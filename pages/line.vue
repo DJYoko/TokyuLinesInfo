@@ -1,36 +1,38 @@
 <template>
-  <div class="container">
-    <nuxt-link class="back-link" :to="{path: '/'}">back to home</nuxt-link>
-    <div class="line-title-block">
-      <div
-        class="line-symbol"
-        :style="symbolStyle"
-      >
-        {{ displayLabel }}
-      </div>
-      <h1>
-        {{ line.name }}
-      </h1>
-    </div>
-
-    <div class="row">
-      <div
-        class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-12"
-        v-for="lineStation in lineStations"
-        :key="lineStation.id"
-      >
-        <nuxt-link
-          :to="{path: '/station', query: { id:lineStation.stationId } }"
-          class="link-to-station"
+  <div>
+    <back-link></back-link>
+    <div class="container">
+      <div class="line-title-block">
+        <div
+          class="line-symbol"
+          :style="symbolStyle"
         >
-          <line-station-unit
-            :id=lineStation.id
-            :name=getStationNameById(lineStation.stationId)
-            :label=lineStation.label
-            :lineId=lineStation.lineId
-            :line=line
-          ></line-station-unit>
-        </nuxt-link>
+          {{ displayLabel }}
+        </div>
+        <h1>
+          {{ line.name }}
+        </h1>
+      </div>
+
+      <div class="row">
+        <div
+          class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-12"
+          v-for="lineStation in lineStations"
+          :key="lineStation.id"
+        >
+          <nuxt-link
+            :to="{path: '/station', query: { id:lineStation.stationId } }"
+            class="link-to-station"
+          >
+            <line-station-unit
+              :id=lineStation.id
+              :name=getStationNameById(lineStation.stationId)
+              :label=lineStation.label
+              :lineId=lineStation.lineId
+              :line=line
+            ></line-station-unit>
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
@@ -40,9 +42,11 @@
 import axios from "axios";
 import util from "~/plugins/util";
 import lineStationUnit from "@/components/lineStationUnit.vue";
+import backLink from "@/components/backLink.vue";
 export default {
   components: {
-    lineStationUnit
+    lineStationUnit,
+    backLink
   },
   data: () => {
     return {

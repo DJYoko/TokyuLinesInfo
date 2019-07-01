@@ -18,13 +18,18 @@
         v-for="lineStation in lineStations"
         :key="lineStation.id"
       >
-        <line-station-unit
-          :id=lineStation.id
-          :name=getStationNameById(lineStation.stationId)
-          :label=lineStation.label
-          :lineId=lineStation.lineId
-          :line=line
-        ></line-station-unit>
+        <nuxt-link
+          :to="{path: '/station', query: { id:lineStation.stationId } }"
+          class="link-to-station"
+        >
+          <line-station-unit
+            :id=lineStation.id
+            :name=getStationNameById(lineStation.stationId)
+            :label=lineStation.label
+            :lineId=lineStation.lineId
+            :line=line
+          ></line-station-unit>
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -115,5 +120,10 @@ h1 {
   line-height: $itemMargin * 4;
   margin-bottom: 0;
   padding: 0 $itemMargin 0 $itemMargin * 4;
+}
+
+.link-to-station {
+  text-decoration: none;
+  color: $textColor;
 }
 </style>

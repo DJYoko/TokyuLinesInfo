@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <nuxt-link class="back-link" :to="{path: '/'}">back to home</nuxt-link>
-    <h4>web framework &amp; libraries</h4>
+    <h2>web framework &amp; libraries</h2>
     <ul style="padding-left:20px;">
       <li>Vue <a
           href="https://vuejs.org/"
@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import backgroundImage from "~/assets/pp_tamagawahukei_retouched.jpg";
 export default {};
 </script>
 

@@ -25,7 +25,6 @@
                 :name=line.name
                 :backgroundColor=line.backgroundColor
                 :textColor=line.textColor
-                @click="onLineItemClicked"
               ></line-unit>
             </nuxt-link>
           </div>
@@ -58,11 +57,6 @@ export default {
     axios.get("lines.json").then(response => {
       self.lines = response.data;
     });
-  },
-  methods: {
-    onLineItemClicked: payload => {
-      // console.log(payload);
-    }
   }
 };
 </script>

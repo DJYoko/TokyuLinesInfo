@@ -34,11 +34,13 @@
 import axios from "axios";
 import util from "~/plugins/util";
 import lineUnit from "@/components/lineUnit.vue";
+import backLink from "@/components/backLink.vue";
 
 export default {
   name: "station",
   components: {
-    lineUnit
+    lineUnit,
+    backLink
   },
   data: () => {
     return {
@@ -73,7 +75,6 @@ export default {
         })
         .then(() => {
           axios.get(`./lines.json`).then(response => {
-            console.log(response.data);
             this.lines = response.data.filter(line => {
               return this.lineIds.indexOf(line.id) !== -1;
             });

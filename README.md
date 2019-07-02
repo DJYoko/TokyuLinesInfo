@@ -7,6 +7,9 @@ Tokyu Lines information powered by Nuxt.js.
 - Nuxt.js https://nuxtjs.org/
 - Bootstrap: https://getbootstrap.com/
 
+## visual materials
+- photo https://www.pakutaso.com/20110602157post-203.html
+
 ## source
 
 - GitHub https://github.com/DJYoko/TokyuLinesInfo

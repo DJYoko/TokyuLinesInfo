@@ -1,5 +1,5 @@
 {
-    "name": "TokyuLinesInfo",
+    "name": "tokyulinesinfo",
     "scripts": {
         "dev": "nuxt",
         "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",

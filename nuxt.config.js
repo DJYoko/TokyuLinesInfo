@@ -6,6 +6,9 @@ const routerBase =
         router: {
           base: '/TokyuLinesInfo/',
         },
+        generate: {
+          dir: 'docs'
+        },
       }
     : {}
 

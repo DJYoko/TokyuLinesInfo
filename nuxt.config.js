@@ -4,7 +4,7 @@ const routerBase =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
         router: {
-          base: '/djyoko.github.io/TokyuLinesInfo/',
+          base: '/TokyuLinesInfo/',
         },
       }
     : {}

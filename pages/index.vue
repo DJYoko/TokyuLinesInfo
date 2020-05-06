@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div v-if="!$isAMP">
     <div class="container">
       <h1 class="text-left">Tokyu Lines info</h1>
     </div>
@@ -37,6 +38,8 @@
         :to="{path: '/about'}"
       >about</nuxt-link>
     </div>
+    </div>
+    <div v-else>AMP page contents powered by pages\index.vue</div>
   </div>
 </template>
 
@@ -45,6 +48,8 @@ import axios from "axios";
 import backgroundImage from "~/assets/pp_tamagawahukei_retouched.jpg";
 import lineUnit from "@/components/lineUnit.vue";
 export default {
+  amp: 'hybrid',
+  ampLayout: 'default.amp',
   components: {
     lineUnit
   },

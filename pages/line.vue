@@ -44,6 +44,8 @@ import util from "~/plugins/util";
 import lineStationUnit from "@/components/lineStationUnit.vue";
 import backLink from "@/components/backLink.vue";
 export default {
+  amp: 'hybrid',
+  ampLayout: 'default.amp',
   components: {
     lineStationUnit,
     backLink

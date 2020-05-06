@@ -23,7 +23,7 @@ export default {
   ],
   amp: {
     // Options
-    // origin: 'http://localhost:3000'
+    origin: 'http://localhost:3000'
   },
   ...routerBase,
 }

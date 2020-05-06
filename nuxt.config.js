@@ -13,5 +13,17 @@ const routerBase =
     : {}
 
 export default {
+  loading: false,
+  render: {
+    resourceHints: false
+  },
+  modules: [
+    // With options
+    ['@nuxtjs/amp']
+  ],
+  amp: {
+    // Options
+    origin: 'http://localhost:3000'
+  },
   ...routerBase,
 }

@@ -38,6 +38,7 @@ import backLink from "@/components/backLink.vue";
 
 export default {
   name: "station",
+  amp: false, // spscific value false is necessary to prevent generate AMP
   components: {
     lineUnit,
     backLink

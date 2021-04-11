@@ -7,7 +7,7 @@ const routerBase =
           base: '/TokyuLinesInfo/',
         },
         generate: {
-          dir: 'docs'
+          dir: 'docs',
         },
       }
     : {}
@@ -15,9 +15,15 @@ const routerBase =
 export default {
   ...routerBase,
   head: {
+    htmlAttrs: { lang: 'ja' },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-    ]
+      {
+        charset: 'utf-8',
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1',
+      },
+    ],
   },
 }

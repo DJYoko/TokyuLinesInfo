@@ -43,11 +43,22 @@
 
 <script>
 import backLink from "@/components/backLink.vue";
+import constants from "@/assets/constants";
 
 export default {
   components: {
     backLink
-  }
+  },
+  head () {
+    return {
+      title: 'about | ' + constants.siteName,
+      meta: [{
+        hid: 'description',
+        name: 'description',
+        content: constants.siteName
+      }]
+    }
+  },
 };
 </script>
 

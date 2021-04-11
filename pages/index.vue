@@ -42,6 +42,7 @@
 
 <script>
 import axios from "axios";
+import constants from "@/assets/constants";
 import backgroundImage from "~/assets/pp_tamagawahukei_retouched.jpg";
 import lineUnit from "@/components/lineUnit.vue";
 export default {
@@ -60,7 +61,17 @@ export default {
     axios.get("lines.json").then(response => {
       self.lines = response.data;
     });
-  }
+  },
+  head () {
+    return {
+      title: constants.siteName,
+      meta: [{
+        hid: 'description',
+        name: 'description',
+        content: constants.siteName
+      }]
+    }
+  },
 };
 </script>
 

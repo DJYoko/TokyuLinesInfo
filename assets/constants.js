@@ -1,3 +1,3 @@
 export default {
-    return {}
+  siteName: 'Tokyu Lines Info',
 }

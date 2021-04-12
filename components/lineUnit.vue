@@ -2,7 +2,6 @@
   <nuxt-link
     :to="{ path: '/line', query: { id: lineId } }"
     class="link-to-line line-unit"
-    @click="onClick"
     :style="borderStyle"
   >
     <div class="color-label" :style="styles">

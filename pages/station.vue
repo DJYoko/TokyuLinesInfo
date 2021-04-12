@@ -38,7 +38,7 @@ export default {
   data: () => {
     return {
       transfer: [],
-      id: 0,
+      stationId: 0,
       lat: 0,
       lineIds: [],
       lon: 0,
@@ -52,7 +52,7 @@ export default {
       : null
 
     if (!stationId) return false
-    this.id = stationId
+    this.stationId = stationId
     this.getData(stationId)
   },
   methods: {
@@ -60,7 +60,7 @@ export default {
       axios
         .get(`./stations.json`)
         .then((response) => {
-          const station = util.getObjectById(response.data, this.id)
+          const station = util.getObjectById(response.data, this.stationId)
           this.lat = station.lat
           this.lon = station.lon
           this.name = station.name

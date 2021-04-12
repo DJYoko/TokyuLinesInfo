@@ -34,6 +34,7 @@
 import axios from 'axios'
 import util from '~/plugins/util'
 export default {
+  name: 'lineIndex',
   components: {
     lineStationUnit: () => import('@/components/lineStationUnit'),
     backLink: () => import('@/components/backLink'),

@@ -36,6 +36,7 @@ import axios from 'axios'
 import constants from '@/assets/constants'
 import backgroundImage from '~/assets/pp_tamagawahukei_retouched.jpg'
 export default {
+  name: 'index',
   components: {
     lineUnit: () => import('@/components/lineUnit'),
   },

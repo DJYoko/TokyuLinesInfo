@@ -66,6 +66,7 @@
 import constants from '@/assets/constants'
 
 export default {
+  name: 'about',
   components: {
     backLink: () => import('@/components/backLink'),
   },

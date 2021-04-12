@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    :to="{ path: '/station', query: { id } }"
+    :to="{ path: '/station', query: { id: stationId } }"
     class="line-station-unit"
   >
     <div class="line-label" :style="styles">
@@ -14,7 +14,7 @@
 export default {
   name: 'lineStationUnit',
   props: {
-    id: {
+    stationId: {
       type: Number,
       require: true,
     },

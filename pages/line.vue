@@ -18,7 +18,7 @@
           :key="lineStation.id"
         >
           <line-station-unit
-            :id="lineStation.id"
+            :station-id="lineStation.id"
             :name="getStationNameById(lineStation.stationId)"
             :label="lineStation.label"
             :lineId="lineStation.lineId"

@@ -20,7 +20,7 @@
               class="link-to-line"
             >
               <line-unit
-                :id="line.id"
+                :line-id="line.id"
                 :name="line.name"
                 :backgroundColor="line.backgroundColor"
                 :textColor="line.textColor"

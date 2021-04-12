@@ -12,7 +12,7 @@ export default {
   name: 'lineUnit',
   props: {
     name: String,
-    id: String,
+    lineId: String,
     backgroundColor: String,
     textColor: String,
   },
@@ -24,7 +24,7 @@ export default {
       }
     },
     displayLabel() {
-      return this.id.toUpperCase()
+      return this.lineId.toUpperCase()
     },
     borderStyle() {
       return {
@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     onClick(event) {
-      this.$emit('click', this.id)
+      this.$emit('click', this.lineId)
     },
   },
 }

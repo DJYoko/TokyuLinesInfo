@@ -1,55 +1,47 @@
 <template>
-  <div
-    class="line-unit"
-    @click="onClick"
-    :style="borderStyle"
-  >
-    <div
-      class="color-label"
-      :style="styles"
-    >
-      {{displayLabel}}
+  <div class="line-unit" @click="onClick" :style="borderStyle">
+    <div class="color-label" :style="styles">
+      {{ displayLabel }}
     </div>
-    <div class="detail-name">{{this.name}}</div>
-
+    <div class="detail-name">{{ this.name }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "lineUnit",
+  name: 'lineUnit',
   props: {
     name: String,
     id: String,
     backgroundColor: String,
-    textColor: String
+    textColor: String,
   },
   computed: {
     styles() {
       return {
         color: this.textColor,
-        backgroundColor: this.backgroundColor
-      };
+        backgroundColor: this.backgroundColor,
+      }
     },
     displayLabel() {
-      return this.id.toUpperCase();
+      return this.id.toUpperCase()
     },
     borderStyle() {
       return {
-        border: `1px solid ${this.backgroundColor}`
-      };
-    }
+        border: `1px solid ${this.backgroundColor}`,
+      }
+    },
   },
   methods: {
     onClick(event) {
-      this.$emit("click", this.id);
-    }
-  }
-};
+      this.$emit('click', this.id)
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
-@import "~assets/variables";
+@import '~assets/variables';
 .line-unit {
   text-align: center;
   cursor: pointer;

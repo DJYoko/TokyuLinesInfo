@@ -6,8 +6,7 @@
     <div
       id="mainvisual"
       :style="{ backgroundImage: `url(${backgroundImageUrl})` }"
-    >
-    </div>
+    ></div>
     <div class="line-list">
       <div class="container">
         <div class="row">
@@ -17,14 +16,14 @@
             :key="line.initial"
           >
             <nuxt-link
-              :to="{path: '/line', query: { id:line.id } }"
+              :to="{ path: '/line', query: { id: line.id } }"
               class="link-to-line"
             >
               <line-unit
-                :id=line.id
-                :name=line.name
-                :backgroundColor=line.backgroundColor
-                :textColor=line.textColor
+                :id="line.id"
+                :name="line.name"
+                :backgroundColor="line.backgroundColor"
+                :textColor="line.textColor"
               ></line-unit>
             </nuxt-link>
           </div>
@@ -32,51 +31,50 @@
       </div>
     </div>
     <div class="container">
-      <nuxt-link
-        class="about-link"
-        :to="{path: '/about'}"
-      >about</nuxt-link>
+      <nuxt-link class="about-link" :to="{ path: '/about' }">about</nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-import constants from "@/assets/constants";
-import backgroundImage from "~/assets/pp_tamagawahukei_retouched.jpg";
-import lineUnit from "@/components/lineUnit.vue";
+import axios from 'axios'
+import constants from '@/assets/constants'
+import backgroundImage from '~/assets/pp_tamagawahukei_retouched.jpg'
+import lineUnit from '@/components/lineUnit.vue'
 export default {
   components: {
-    lineUnit
+    lineUnit,
   },
   data: () => {
     return {
       backgroundImageUrl: backgroundImage,
       isLoading: true,
-      lines: []
-    };
-  },
-  mounted() {
-    const self = this;
-    axios.get("lines.json").then(response => {
-      self.lines = response.data;
-    });
-  },
-  head () {
-    return {
-      title: constants.siteName,
-      meta: [{
-        hid: 'description',
-        name: 'description',
-        content: constants.siteName
-      }]
+      lines: [],
     }
   },
-};
+  mounted() {
+    const self = this
+    axios.get('lines.json').then((response) => {
+      self.lines = response.data
+    })
+  },
+  head() {
+    return {
+      title: constants.siteName,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: constants.siteName,
+        },
+      ],
+    }
+  },
+}
 </script>
 
 <style scoped lang="scss">
-@import "~assets/variables";
+@import '~assets/variables';
 h1 {
   color: $textColor;
   font-weight: 100;

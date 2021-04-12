@@ -16,30 +16,25 @@
 export default {
   name: 'lineUnit',
   props: {
-    lineName: String,
-    lineId: String,
-    backgroundColor: String,
-    textColor: String,
+    lineName: { type: String, default: '' },
+    lineId: { type: String, default: '' },
+    backgroundColor: { type: String, default: '' },
+    textColor: { type: String, default: '' },
   },
   computed: {
     styles() {
       return {
-        color: this.textColor,
-        backgroundColor: this.backgroundColor,
+        color: this.$props.textColor,
+        backgroundColor: this.$props.backgroundColor,
       }
     },
     displayLabel() {
-      return this.lineId.toUpperCase()
+      return this.$props.lineId.toUpperCase()
     },
     borderStyle() {
       return {
-        border: `1px solid ${this.backgroundColor}`,
+        border: `1px solid ${this.$props.backgroundColor}`,
       }
-    },
-  },
-  methods: {
-    onClick(event) {
-      this.$emit('click', this.lineId)
     },
   },
 }

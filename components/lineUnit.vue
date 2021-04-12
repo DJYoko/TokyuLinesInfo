@@ -8,7 +8,7 @@
     <div class="color-label" :style="styles">
       {{ displayLabel }}
     </div>
-    <div class="detail-name">{{ this.name }}</div>
+    <div class="detail-name">{{ lineName }}</div>
   </nuxt-link>
 </template>
 
@@ -16,7 +16,7 @@
 export default {
   name: 'lineUnit',
   props: {
-    name: String,
+    lineName: String,
     lineId: String,
     backgroundColor: String,
     textColor: String,

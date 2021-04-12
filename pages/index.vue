@@ -17,7 +17,7 @@
           >
             <line-unit
               :line-id="line.id"
-              :name="line.name"
+              :line-name="line.name"
               :backgroundColor="line.backgroundColor"
               :textColor="line.textColor"
             ></line-unit>

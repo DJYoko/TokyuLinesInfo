@@ -12,17 +12,12 @@
             v-for="line in lines"
             :key="line.initial"
           >
-            <nuxt-link
-              :to="{ path: '/line', query: { id: line.id } }"
-              class="link-to-line"
-            >
-              <line-unit
-                :line-id="line.id"
-                :name="line.name"
-                :backgroundColor="line.backgroundColor"
-                :textColor="line.textColor"
-              ></line-unit>
-            </nuxt-link>
+            <line-unit
+              :line-id="line.id"
+              :name="line.name"
+              :backgroundColor="line.backgroundColor"
+              :textColor="line.textColor"
+            ></line-unit>
           </div>
         </div>
       </div>

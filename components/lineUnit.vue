@@ -1,10 +1,15 @@
 <template>
-  <div class="line-unit" @click="onClick" :style="borderStyle">
+  <nuxt-link
+    :to="{ path: '/line', query: { id: lineId } }"
+    class="link-to-line line-unit"
+    @click="onClick"
+    :style="borderStyle"
+  >
     <div class="color-label" :style="styles">
       {{ displayLabel }}
     </div>
     <div class="detail-name">{{ this.name }}</div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
@@ -43,6 +48,7 @@ export default {
 <style scoped lang="scss">
 @import '~assets/variables';
 .line-unit {
+  display: block;
   text-align: center;
   cursor: pointer;
   border-radius: $itemRadius;

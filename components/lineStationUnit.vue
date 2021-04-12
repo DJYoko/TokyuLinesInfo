@@ -6,7 +6,7 @@
     <div class="line-label" :style="styles">
       {{ displayLabel }}
     </div>
-    <div class="detail-name">{{ this.name }}</div>
+    <div class="detail-name">{{ stationName }}</div>
   </nuxt-link>
 </template>
 
@@ -18,7 +18,7 @@ export default {
       type: Number,
       require: true,
     },
-    name: {
+    stationName: {
       type: String,
       require: true,
     },

@@ -19,11 +19,11 @@
         >
           <line-station-unit
             :station-id="lineStation.id"
-            :name="getStationNameById(lineStation.stationId)"
+            :station-name="getStationNameById(lineStation.stationId)"
             :label="lineStation.label"
             :lineId="lineStation.lineId"
             :line="line"
-          ></line-station-unit>
+          />
         </div>
       </div>
     </div>

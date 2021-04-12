@@ -28,14 +28,12 @@
 <script>
 import axios from 'axios'
 import util from '~/plugins/util'
-import lineUnit from '@/components/lineUnit.vue'
-import backLink from '@/components/backLink.vue'
 
 export default {
   name: 'station',
   components: {
-    lineUnit,
-    backLink,
+    lineUnit: () => import('@/components/lineUnit'),
+    backLink: () => import('@/components/backLink'),
   },
   data: () => {
     return {

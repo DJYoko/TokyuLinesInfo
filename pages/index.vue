@@ -35,10 +35,9 @@
 import axios from 'axios'
 import constants from '@/assets/constants'
 import backgroundImage from '~/assets/pp_tamagawahukei_retouched.jpg'
-import lineUnit from '@/components/lineUnit.vue'
 export default {
   components: {
-    lineUnit,
+    lineUnit: () => import('@/components/lineUnit'),
   },
   data: () => {
     return {

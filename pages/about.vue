@@ -39,7 +39,7 @@
             target="_blank"
             rel="noreferrer"
           >
-            PAKUTAO
+            PAKUTASO
           </a>
           (used in Top page main visual)
         </li>

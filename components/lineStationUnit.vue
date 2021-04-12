@@ -1,68 +1,73 @@
 <template>
-  <div class="line-station-unit">
-    <div
-      class="color-label"
-      :style="styles"
-    >
-      {{displayLabel}}
+  <nuxt-link
+    :to="{ path: '/station', query: { id } }"
+    class="line-station-unit"
+  >
+    <div class="line-label" :style="styles">
+      {{ displayLabel }}
     </div>
-    <div class="detail-name">{{this.name}}</div>
-
-  </div>
+    <div class="detail-name">{{ this.name }}</div>
+  </nuxt-link>
 </template>
 
 <script>
 export default {
-  name: "lineStationUnit",
+  name: 'lineStationUnit',
   props: {
     id: {
       type: Number,
-      require: true
+      require: true,
     },
     name: {
       type: String,
-      require: true
+      require: true,
     },
     label: {
       type: String,
-      require: true
+      require: true,
     },
     lineId: {
       type: String,
-      require: true
+      require: true,
     },
     line: {
       type: Object,
-      require: true
-    }
+      require: true,
+    },
   },
   computed: {
     styles() {
       return {
         backgroundColor: this.line.backgroundColor,
-        color: this.line.textColor
-      };
+        color: this.line.textColor,
+      }
     },
     displayLabel() {
-      return this.label.toUpperCase();
-    }
-  }
-};
+      return this.label.toUpperCase()
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
-@import "~assets/variables";
+@import '~assets/variables';
 .line-station-unit {
+  display: block;
+  text-decoration: none;
+  color: #222222;
   text-align: center;
   position: relative;
   background-color: $backgroundColorGray;
   margin-bottom: 2px;
+  &:hover {
+    text-decoration: none;
+  }
   @media screen and (min-width: 576px) {
     margin-bottom: $itemMargin * 2;
   }
 }
 
-.color-label {
+.line-label {
   position: absolute;
   top: $itemMargin;
   left: $itemMargin;

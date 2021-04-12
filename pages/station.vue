@@ -17,7 +17,7 @@
               :line-name="line.name"
               :backgroundColor="line.backgroundColor"
               :textColor="line.textColor"
-            ></line-unit>
+            />
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ export default {
     if (typeof id !== 'string' && typeof id !== 'number') return null
 
     let returnObject = null
-    ary.forEach(item => {
+    ary.forEach((item) => {
       if (item.id === id) {
         returnObject = item
       }

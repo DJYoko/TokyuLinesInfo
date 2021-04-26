@@ -53,7 +53,7 @@ export default {
   methods: {
     getData() {
       axios
-        .get(`${util.rootPath(location.href)}stations.json`)
+        .get(`${util.rootPath()}stations.json`)
         .then((response) => {
           const station = util.getObjectById(response.data, this.stationId)
           this.lat = station.lat
@@ -62,13 +62,11 @@ export default {
           this.lineIds = station.lineIds
         })
         .then(() => {
-          axios
-            .get(`${util.rootPath(location.href)}lines.json`)
-            .then((response) => {
-              this.lines = response.data.filter((line) => {
-                return this.lineIds.indexOf(line.id) !== -1
-              })
+          axios.get(`${util.rootPath()}lines.json`).then((response) => {
+            this.lines = response.data.filter((line) => {
+              return this.lineIds.indexOf(line.id) !== -1
             })
+          })
         })
     },
   },

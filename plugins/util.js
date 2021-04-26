@@ -11,7 +11,7 @@ export default {
     })
     return returnObject
   },
-  rootPath: (url) => {
-    return url.match(/^http:\/\/localhost/g) ? '/' : '/TokyuLinesInfo/'
+  rootPath: () => {
+    return '/'
   },
 }

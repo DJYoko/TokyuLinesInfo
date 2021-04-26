@@ -1,6 +1,6 @@
 <template>
   <div>
-    <back-link></back-link>
+    <back-link />
     <div class="container">
       <div class="line-title-block">
         <div class="line-symbol" :style="symbolStyle">
@@ -52,23 +52,25 @@ export default {
     }
   },
   mounted() {
-    const lineId = this.$route.query.id
-    axios.get(`./lineStations.json`).then((response) => {
+    axios.get(`../../lineStations.json`).then((response) => {
       this.lineStations = response.data.filter((station) => {
-        return station.lineId === lineId
+        return station.lineId === this.lineId
       })
     })
 
-    axios.get(`./stations.json`).then((response) => {
+    axios.get(`../../stations.json`).then((response) => {
       this.stations = response.data
     })
 
-    axios.get(`./lines.json`).then((response) => {
-      this.line = util.getObjectById(response.data, lineId)
+    axios.get(`../../lines.json`).then((response) => {
+      this.line = util.getObjectById(response.data, this.lineId)
     })
   },
   methods: {},
   computed: {
+    lineId() {
+      return this.$route.params.lineId
+    },
     displayLabel() {
       return this.line.id.toUpperCase()
     },
@@ -86,7 +88,7 @@ export default {
         })
         return matchedStations.length > 0
           ? matchedStations[0].name
-          : '駅登録なし'
+          : 'station not found'
       }
     },
   },

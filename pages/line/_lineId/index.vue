@@ -52,17 +52,21 @@ export default {
     }
   },
   mounted() {
-    axios.get(`../../lineStations.json`).then((response) => {
-      this.lineStations = response.data.filter((station) => {
-        return station.lineId === this.lineId
+    axios
+      .get(`${util.rootPath(location.href)}lineStations.json`)
+      .then((response) => {
+        this.lineStations = response.data.filter((station) => {
+          return station.lineId === this.lineId
+        })
       })
-    })
 
-    axios.get(`../../stations.json`).then((response) => {
-      this.stations = response.data
-    })
+    axios
+      .get(`${util.rootPath(location.href)}stations.json`)
+      .then((response) => {
+        this.stations = response.data
+      })
 
-    axios.get(`../../lines.json`).then((response) => {
+    axios.get(`${util.rootPath(location.href)}lines.json`).then((response) => {
       this.line = util.getObjectById(response.data, this.lineId)
     })
   },

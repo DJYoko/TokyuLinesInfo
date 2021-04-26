@@ -11,5 +11,8 @@ export default {
     })
     return returnObject
   },
-  rootPath: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/TokyuLinesInfo/' : '/',
+  rootPath: (url) => {
+    const isLocal = url.match(/localhost/g)
+    return isLocal ? '/' : '/TokyuLinesInfo/'
+  },
 }

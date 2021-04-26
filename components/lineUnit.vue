@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    :to="{ path: '/line', query: { id: lineId } }"
+    :to="`/line/${lineId}/`"
     class="link-to-line line-unit"
     :style="borderStyle"
   >

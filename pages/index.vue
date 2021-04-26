@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="container">
-      <nuxt-link class="about-link" :to="{ path: '/about' }">about</nuxt-link>
+      <nuxt-link class="about-link" :to="{ path: '/about/' }">about</nuxt-link>
     </div>
   </div>
 </template>

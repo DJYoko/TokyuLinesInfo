@@ -30,7 +30,7 @@ import axios from 'axios'
 import util from '~/plugins/util'
 
 export default {
-  name: 'StationIndex',
+  name: 'StationId',
   components: {
     lineUnit: () => import('@/components/lineUnit'),
     backLink: () => import('@/components/backLink'),

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <back-link></back-link>
+    <back-link />
     <div class="container">
       <h2>{{ name }}</h2>
       <hr />
@@ -30,7 +30,7 @@ import axios from 'axios'
 import util from '~/plugins/util'
 
 export default {
-  name: 'station',
+  name: 'StationIndex',
   components: {
     lineUnit: () => import('@/components/lineUnit'),
     backLink: () => import('@/components/backLink'),
@@ -38,7 +38,6 @@ export default {
   data: () => {
     return {
       transfer: [],
-      stationId: 0,
       lat: 0,
       lineIds: [],
       lon: 0,
@@ -47,18 +46,14 @@ export default {
     }
   },
   mounted() {
-    const stationId = isFinite(this.$route.query.id)
-      ? parseInt(this.$route.query.id)
-      : null
-
-    if (!stationId) return false
-    this.stationId = stationId
-    this.getData(stationId)
+    if (this.stationId) {
+      this.getData()
+    }
   },
   methods: {
     getData() {
       axios
-        .get(`./stations.json`)
+        .get(`../../stations.json`)
         .then((response) => {
           const station = util.getObjectById(response.data, this.stationId)
           this.lat = station.lat
@@ -67,7 +62,7 @@ export default {
           this.lineIds = station.lineIds
         })
         .then(() => {
-          axios.get(`./lines.json`).then((response) => {
+          axios.get(`../../lines.json`).then((response) => {
             this.lines = response.data.filter((line) => {
               return this.lineIds.indexOf(line.id) !== -1
             })
@@ -75,7 +70,14 @@ export default {
         })
     },
   },
-  computed: {},
+  computed: {
+    stationId() {
+      if (!isFinite(this.$route.params.stationId)) {
+        return null
+      }
+      return parseInt(this.$route.params.stationId)
+    },
+  },
 }
 </script>
 

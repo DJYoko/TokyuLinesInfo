@@ -1,8 +1,5 @@
 <template>
-  <nuxt-link
-    :to="{ path: '/station', query: { id: stationId } }"
-    class="line-station-unit"
-  >
+  <nuxt-link :to="`/station/${stationId}/`" class="line-station-unit">
     <div class="line-label" :style="styles">
       {{ displayLabel }}
     </div>

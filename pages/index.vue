@@ -50,7 +50,7 @@ export default {
   },
   mounted() {
     const self = this
-    axios.get(`${util.rootPath}lines.json`).then((response) => {
+    axios.get(`./lines.json`).then((response) => {
       self.lines = response.data
     })
   },

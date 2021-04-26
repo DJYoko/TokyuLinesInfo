@@ -11,7 +11,9 @@ export default {
     })
     return returnObject
   },
-  rootPath: location.href.match(/^http:\/\/localhost/g)
-    ? '/TokyuLinesInfo/'
-    : '/',
+  rootPath: () => {
+    return location.href.match(/^http:\/\/localhost/g)
+      ? '/'
+      : '/TokyuLinesInfo/'
+  },
 }

@@ -33,6 +33,7 @@
 
 <script>
 import axios from 'axios'
+import util from '~/plugins/util'
 import constants from '@/assets/constants'
 import backgroundImage from '~/assets/pp_tamagawahukei_retouched.jpg'
 export default {
@@ -49,7 +50,7 @@ export default {
   },
   mounted() {
     const self = this
-    axios.get('lines.json').then((response) => {
+    axios.get(`${util.rootPath}lines.json`).then((response) => {
       self.lines = response.data
     })
   },

@@ -11,7 +11,5 @@ export default {
     })
     return returnObject
   },
-  rootPath: () => {
-    return process.env.DEPLOY_ENV === 'GH_PAGES' ? '/TokyuLinesInfo/' : '/'
-  },
+  rootPath: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/TokyuLinesInfo/' : '/',
 }

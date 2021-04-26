@@ -63,12 +63,12 @@
 </template>
 
 <script>
-import backLink from '@/components/backLink.vue'
 import constants from '@/assets/constants'
 
 export default {
+  name: 'about',
   components: {
-    backLink,
+    backLink: () => import('@/components/backLink'),
   },
   head() {
     return {

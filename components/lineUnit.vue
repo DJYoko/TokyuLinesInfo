@@ -1,56 +1,48 @@
 <template>
-  <div
-    class="line-unit"
-    @click="onClick"
+  <nuxt-link
+    :to="`/line/${lineId}/`"
+    class="link-to-line line-unit"
     :style="borderStyle"
   >
-    <div
-      class="color-label"
-      :style="styles"
-    >
-      {{displayLabel}}
+    <div class="color-label" :style="styles">
+      {{ displayLabel }}
     </div>
-    <div class="detail-name">{{this.name}}</div>
-
-  </div>
+    <div class="detail-name">{{ lineName }}</div>
+  </nuxt-link>
 </template>
 
 <script>
 export default {
-  name: "lineUnit",
+  name: 'lineUnit',
   props: {
-    name: String,
-    id: String,
-    backgroundColor: String,
-    textColor: String
+    lineName: { type: String, default: '' },
+    lineId: { type: String, default: '' },
+    backgroundColor: { type: String, default: '' },
+    textColor: { type: String, default: '' },
   },
   computed: {
     styles() {
       return {
-        color: this.textColor,
-        backgroundColor: this.backgroundColor
-      };
+        color: this.$props.textColor,
+        backgroundColor: this.$props.backgroundColor,
+      }
     },
     displayLabel() {
-      return this.id.toUpperCase();
+      return this.$props.lineId.toUpperCase()
     },
     borderStyle() {
       return {
-        border: `1px solid ${this.backgroundColor}`
-      };
-    }
+        border: `1px solid ${this.$props.backgroundColor}`,
+      }
+    },
   },
-  methods: {
-    onClick(event) {
-      this.$emit("click", this.id);
-    }
-  }
-};
+}
 </script>
 
 <style scoped lang="scss">
-@import "~assets/variables";
+@import '~assets/variables';
 .line-unit {
+  display: block;
   text-align: center;
   cursor: pointer;
   border-radius: $itemRadius;

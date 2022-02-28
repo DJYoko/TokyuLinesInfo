@@ -14,6 +14,7 @@ const routerBase =
 
 export default {
   ...routerBase,
+  target: 'static',
   head: {
     htmlAttrs: { lang: 'ja' },
     meta: [

@@ -6,7 +6,7 @@
         "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate"
     },
     "dependencies": {
-        "nuxt": "^2.15.8"
+        "nuxt": "^3.0.0"
     },
     "devDependencies": {
         "axios": "^0.27.2",

@@ -3,24 +3,12 @@
     <div class="container">
       <h1 class="text-left">Tokyu Lines info</h1>
     </div>
-    <div
-      id="mainvisual"
-      :style="{ backgroundImage: `url(${backgroundImageUrl})` }"
-    ></div>
+    <div id="mainvisual" :style="{ backgroundImage: `url(${backgroundImageUrl})` }"></div>
     <div class="line-list">
       <div class="container">
         <div class="row">
-          <div
-            class="col-6 col-sm-3 col-lg-2 line-list-item-wrapper"
-            v-for="line in lines"
-            :key="line.initial"
-          >
-            <line-unit
-              :line-id="line.id"
-              :line-name="line.name"
-              :backgroundColor="line.backgroundColor"
-              :textColor="line.textColor"
-            />
+          <div class="col-6 col-sm-3 col-lg-2 line-list-item-wrapper" v-for="line in lines" :key="line.initial">
+            <line-unit :line-id="line.id" :line-name="line.name" :backgroundColor="line.backgroundColor" :textColor="line.textColor" />
           </div>
         </div>
       </div>
@@ -32,10 +20,11 @@
 </template>
 
 <script>
-import axios from 'axios'
-import util from '~/plugins/util'
-import constants from '@/assets/constants'
-import backgroundImage from '~/assets/pp_tamagawahukei_retouched.jpg'
+import axios from 'axios';
+const { $rootPath } = useNuxtApp();
+
+import constants from '@/assets/constants';
+import backgroundImage from '~/assets/pp_tamagawahukei_retouched.jpg';
 export default {
   name: 'index',
   components: {
@@ -46,13 +35,13 @@ export default {
       backgroundImageUrl: backgroundImage,
       isLoading: true,
       lines: [],
-    }
+    };
   },
   mounted() {
-    const self = this
-    axios.get(`${util.rootPath(location.href)}lines.json`).then((response) => {
-      self.lines = response.data
-    })
+    const self = this;
+    axios.get(`${$rootPath(location.href)}lines.json`).then((response) => {
+      self.lines = response.data;
+    });
   },
   head() {
     return {
@@ -64,9 +53,9 @@ export default {
           content: constants.siteName,
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style scoped lang="scss">

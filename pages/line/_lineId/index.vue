@@ -12,18 +12,8 @@
       </div>
 
       <div class="row">
-        <div
-          class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-12"
-          v-for="lineStation in lineStations"
-          :key="lineStation.id"
-        >
-          <line-station-unit
-            :station-id="lineStation.stationId"
-            :station-name="getStationNameById(lineStation.stationId)"
-            :label="lineStation.label"
-            :lineId="lineStation.lineId"
-            :line="line"
-          />
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-12" v-for="lineStation in lineStations" :key="lineStation.id">
+          <line-station-unit :station-id="lineStation.stationId" :station-name="getStationNameById(lineStation.stationId)" :label="lineStation.label" :lineId="lineStation.lineId" :line="line" />
         </div>
       </div>
     </div>
@@ -31,8 +21,10 @@
 </template>
 
 <script>
-import axios from 'axios'
-import util from '~/plugins/util'
+import axios from 'axios';
+const { $rootPath } = useNuxtApp();
+
+const { $getObjectById } = useNuxtApp();
 export default {
   name: 'LineIndex',
   components: {
@@ -49,54 +41,48 @@ export default {
         name: '',
         textColor: '',
       },
-    }
+    };
   },
   mounted() {
-    axios
-      .get(`${util.rootPath(location.href)}lineStations.json`)
-      .then((response) => {
-        this.lineStations = response.data.filter((station) => {
-          return station.lineId === this.lineId
-        })
-      })
+    axios.get(`${$rootPath(location.href)}lineStations.json`).then((response) => {
+      this.lineStations = response.data.filter((station) => {
+        return station.lineId === this.lineId;
+      });
+    });
 
-    axios
-      .get(`${util.rootPath(location.href)}stations.json`)
-      .then((response) => {
-        this.stations = response.data
-      })
+    axios.get(`${$rootPath(location.href)}stations.json`).then((response) => {
+      this.stations = response.data;
+    });
 
-    axios.get(`${util.rootPath(location.href)}lines.json`).then((response) => {
-      this.line = util.getObjectById(response.data, this.lineId)
-    })
+    axios.get(`${$rootPath(location.href)}lines.json`).then((response) => {
+      this.line = $getObjectById(response.data, this.lineId);
+    });
   },
   methods: {},
   computed: {
     lineId() {
-      return this.$route.params.lineId
+      return this.$route.params.lineId;
     },
     displayLabel() {
-      return this.line.id.toUpperCase()
+      return this.line.id.toUpperCase();
     },
     symbolStyle() {
       return {
         backgroundColor: this.line.backgroundColor,
         color: this.line.textColor,
-      }
+      };
     },
     getStationNameById() {
-      const self = this
+      const self = this;
       return (stationId) => {
         const matchedStations = this.stations.filter((station) => {
-          return station.id === stationId
-        })
-        return matchedStations.length > 0
-          ? matchedStations[0].name
-          : 'station not found'
-      }
+          return station.id === stationId;
+        });
+        return matchedStations.length > 0 ? matchedStations[0].name : 'station not found';
+      };
     },
   },
-}
+};
 </script>
 
 <style scoped lang="scss">

@@ -11,9 +11,11 @@
         "typescript": "^4.0.5"
     },
     "devDependencies": {
+        "@nuxtjs/style-resources": "^1.2.1",
         "axios": "^0.27.2",
         "cross-env": "^7.0.3",
         "node-sass": "^7.0.3",
+        "sass": "^1.63.6",
         "sass-loader": "^13.3.2"
     }
 }

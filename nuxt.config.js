@@ -15,6 +15,10 @@ const routerBase =
 export default {
   ...routerBase,
   target: 'static',
+  buildModules: ['@nuxtjs/style-resources'],
+  styleResources: {
+    scss: ['@/assets/variables.scss'],
+  },
   head: {
     htmlAttrs: { lang: 'ja' },
     meta: [

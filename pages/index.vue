@@ -3,12 +3,24 @@
     <div class="container">
       <h1 class="text-left">Tokyu Lines info</h1>
     </div>
-    <div id="mainvisual" :style="{ backgroundImage: `url(${backgroundImageUrl})` }"></div>
+    <div
+      id="mainvisual"
+      :style="{ backgroundImage: `url(${backgroundImageUrl})` }"
+    ></div>
     <div class="line-list">
       <div class="container">
         <div class="row">
-          <div class="col-6 col-sm-3 col-lg-2 line-list-item-wrapper" v-for="line in lines" :key="line.initial">
-            <line-unit :line-id="line.id" :line-name="line.name" :backgroundColor="line.backgroundColor" :textColor="line.textColor" />
+          <div
+            class="col-6 col-sm-3 col-lg-2 line-list-item-wrapper"
+            v-for="line in lines"
+            :key="line.initial"
+          >
+            <line-unit
+              :line-id="line.id"
+              :line-name="line.name"
+              :backgroundColor="line.backgroundColor"
+              :textColor="line.textColor"
+            />
           </div>
         </div>
       </div>
@@ -19,47 +31,8 @@
   </div>
 </template>
 
-<script>
-import axios from 'axios';
-const { $rootPath } = useNuxtApp();
-
-import constants from '@/assets/constants';
-import backgroundImage from '~/assets/pp_tamagawahukei_retouched.jpg';
-export default {
-  name: 'index',
-  components: {
-    lineUnit: () => import('@/components/lineUnit'),
-  },
-  data: () => {
-    return {
-      backgroundImageUrl: backgroundImage,
-      isLoading: true,
-      lines: [],
-    };
-  },
-  mounted() {
-    const self = this;
-    axios.get(`${$rootPath(location.href)}lines.json`).then((response) => {
-      self.lines = response.data;
-    });
-  },
-  head() {
-    return {
-      title: constants.siteName,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: constants.siteName,
-        },
-      ],
-    };
-  },
-};
-</script>
-
 <style scoped lang="scss">
-@import '~assets/variables';
+@import '@/assets/variables.scss';
 h1 {
   color: $textColor;
   font-weight: 100;
@@ -92,3 +65,43 @@ h1 {
   text-align: center;
 }
 </style>
+
+<script>
+import axios from 'axios'
+import rootPath from '@/assets/scripts/rootPath'
+
+import backgroundImage from '~/assets/pp_tamagawahukei_retouched.jpg'
+export default {
+  name: 'index',
+  components: {
+    lineUnit: () => import('@/components/lineUnit'),
+  },
+  data: () => {
+    return {
+      backgroundImageUrl: backgroundImage,
+      isLoading: true,
+      lines: [],
+    }
+  },
+  mounted() {
+    const self = this
+    const aaa = rootPath(location.href)
+    console.log(aaa)
+    axios.get(`${rootPath(location.href)}lines.json`).then((response) => {
+      self.lines = response.data
+    })
+  },
+  head() {
+    return {
+      title: 'aaaaaaaaaaaaaaaaaa',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'aaaaaaaaaaaaaaaaaa',
+        },
+      ],
+    }
+  },
+}
+</script>

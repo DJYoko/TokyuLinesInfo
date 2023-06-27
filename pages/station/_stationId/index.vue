@@ -7,8 +7,17 @@
       <div class="transfer">
         <h3>乗り入れ路線</h3>
         <div class="row">
-          <div class="col-6 col-sm-3 col-lg-2 line-list-item-wrapper" v-for="line in lines" :key="line.initial">
-            <line-unit :line-id="line.id" :line-name="line.name" :backgroundColor="line.backgroundColor" :textColor="line.textColor" />
+          <div
+            class="col-6 col-sm-3 col-lg-2 line-list-item-wrapper"
+            v-for="line in lines"
+            :key="line.initial"
+          >
+            <line-unit
+              :line-id="line.id"
+              :line-name="line.name"
+              :backgroundColor="line.backgroundColor"
+              :textColor="line.textColor"
+            />
           </div>
         </div>
       </div>
@@ -17,8 +26,9 @@
 </template>
 
 <script>
-import axios from 'axios';
-const { $getObjectById, $rootPath } = useNuxtApp();
+import axios from 'axios'
+import rootPath from '@/assets/scripts/rootPath'
+import getObjectById from '@/assets/scripts/getObjectById'
 
 export default {
   name: 'StationId',
@@ -34,46 +44,46 @@ export default {
       lon: 0,
       name: '',
       lines: [],
-    };
+    }
   },
   mounted() {
     if (this.stationId) {
-      this.getData();
+      this.getData()
     }
   },
   methods: {
     getData() {
       axios
-        .get(`${$rootPath(location.href)}stations.json`)
+        .get(`${rootPath(location.href)}stations.json`)
         .then((response) => {
-          const station = $getObjectById(response.data, this.stationId);
-          this.lat = station.lat;
-          this.lon = station.lon;
-          this.name = station.name;
-          this.lineIds = station.lineIds;
+          const station = getObjectById(response.data, this.stationId)
+          this.lat = station.lat
+          this.lon = station.lon
+          this.name = station.name
+          this.lineIds = station.lineIds
         })
         .then(() => {
-          axios.get(`${$rootPath(location.href)}lines.json`).then((response) => {
+          axios.get(`${rootPath(location.href)}lines.json`).then((response) => {
             this.lines = response.data.filter((line) => {
-              return this.lineIds.indexOf(line.id) !== -1;
-            });
-          });
-        });
+              return this.lineIds.indexOf(line.id) !== -1
+            })
+          })
+        })
     },
   },
   computed: {
     stationId() {
       if (!isFinite(this.$route.params.stationId)) {
-        return null;
+        return null
       }
-      return parseInt(this.$route.params.stationId);
+      return parseInt(this.$route.params.stationId)
     },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
-@import '~assets/variables';
+@import '@/assets/variables.scss';
 .back-link {
   text-align: left;
 }

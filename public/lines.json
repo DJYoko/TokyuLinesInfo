@@ -1,0 +1,50 @@
+[
+    {
+        "name": "東横線",
+        "id": "ty",
+        "backgroundColor": "#DB0442",
+        "textColor": "#ffffff"
+    },
+    {
+        "name": "目黒線",
+        "id": "mg",
+        "backgroundColor": "#009CD3",
+        "textColor": "#ffffff"
+    },
+    {
+        "name": "田園都市線",
+        "id": "dt",
+        "backgroundColor": "#00AA8E",
+        "textColor": "#ffffff"
+    },
+    {
+        "name": "大井町線",
+        "id": "om",
+        "backgroundColor": "#F18C43",
+        "textColor": "#ffffff"
+    },
+    {
+        "name": "池上線",
+        "id": "ik",
+        "backgroundColor": "#EE86A7",
+        "textColor": "#ffffff"
+    },
+    {
+        "name": "多摩川線",
+        "id": "tm",
+        "backgroundColor": "#AE0379",
+        "textColor": "#ffffff"
+    },
+    {
+        "name": "世田谷線",
+        "id": "sg",
+        "backgroundColor": "#FCC80D",
+        "textColor": "#595656"
+    },
+    {
+        "name": "こどもの国線",
+        "id": "kd",
+        "backgroundColor": "#0071BE",
+        "textColor": "#ffffff"
+    }
+]

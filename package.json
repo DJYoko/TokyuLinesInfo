@@ -1,10 +1,5 @@
 {
   "name": "tokyulinesinfo",
-  "scripts": {
-    "dev": "cross-env IS_DEVELOP=true nuxt",
-    "buil:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
-    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate"
-  },
   "dependencies": {
     "@babel/types": "^7.22.5",
     "nuxt": "^3.0.0",

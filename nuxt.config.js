@@ -6,6 +6,9 @@ console.log({ routerBase })
 
 export default {
   target: 'static',
+  static: {
+    baseDir: '/docs',
+  },
   buildModules: ['@nuxtjs/style-resources'],
   styleResources: {
     scss: ['@/assets/variables.scss'],

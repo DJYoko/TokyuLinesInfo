@@ -76,7 +76,8 @@ export default {
   height: $itemMargin * 4;
   line-height: $itemMargin * 4;
   padding: 0 0 0 $itemMargin * 4;
-  border-radius: 0 0 $itemRadius $itemRadius;
+  border-radius: $itemRadius;
+  background-color: $lightGray;
   transition: $transition;
 }
 </style>

@@ -9,7 +9,7 @@
     ></div>
     <div class="line-list">
       <div class="container">
-        <div class="row">
+        <div class="row" v-if="lines.length > 0">
           <div
             class="col-6 col-sm-3 col-lg-2 line-list-item-wrapper"
             v-for="line in lines"
@@ -93,12 +93,12 @@ export default {
   },
   head() {
     return {
-      title: 'aaaaaaaaaaaaaaaaaa',
+      title: 'Tokyu Lines Info',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'aaaaaaaaaaaaaaaaaa',
+          content: 'Tokyu Lines Info',
         },
       ],
     }

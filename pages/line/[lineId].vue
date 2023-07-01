@@ -54,6 +54,7 @@ export default {
     }
   },
   mounted() {
+    // isLoadedを仕込む
     axios
       .get(`${rootPath(location.href)}lineStations.json`)
       .then((response) => {
@@ -79,9 +80,15 @@ export default {
       return this.line.id.toUpperCase()
     },
     symbolStyle() {
+      if (!this.line) {
+        return {}
+      }
+
       return {
-        backgroundColor: this.line.backgroundColor,
-        color: this.line.textColor,
+        backgroundColor: this.line.backgroundColor
+          ? this.line.backgroundColor
+          : '',
+        color: this.line.textColor ? this.line.textColor : '',
       }
     },
     getStationNameById() {

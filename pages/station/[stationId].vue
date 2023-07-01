@@ -15,7 +15,9 @@
             <line-unit
               :line-id="line.id"
               :line-name="line.name"
-              :backgroundColor="line.backgroundColor"
+              :backgroundColor="
+                line.backgroundColor ? line.backgroundColor : ''
+              "
               :textColor="line.textColor"
             />
           </div>
@@ -52,8 +54,8 @@ export default {
     }
   },
   methods: {
-    getData() {
-      axios
+    async getData() {
+      await axios
         .get(`${rootPath(location.href)}stations.json`)
         .then((response) => {
           const station = getObjectById(response.data, this.stationId)
@@ -62,11 +64,11 @@ export default {
           this.name = station.name
           this.lineIds = station.lineIds
         })
-        .then(() => {
-          axios.get(`${rootPath(location.href)}lines.json`).then((response) => {
-            this.lines = response.data.filter((line) => {
-              return this.lineIds.indexOf(line.id) !== -1
-            })
+      await axios
+        .get(`${rootPath(location.href)}lines.json`)
+        .then((response) => {
+          this.lines = response.data.filter((line) => {
+            return this.lineIds.indexOf(line.id) !== -1
           })
         })
     },

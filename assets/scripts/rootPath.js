@@ -1,5 +1,4 @@
 // rootPath
-export default (url) => {
-  const isLocal = url.match(/localhost/g)
-  return isLocal ? '/' : '/TokyuLinesInfo/'
+export default () => {
+  return location.href.match('TokyuLinesInfo') ? '/TokyuLinesInfo/' : '/'
 }

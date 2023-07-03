@@ -85,9 +85,7 @@ export default {
   },
   mounted() {
     const self = this
-    const aaa = rootPath(location.href)
-    console.log(aaa)
-    axios.get(`${rootPath(location.href)}lines.json`).then((response) => {
+    axios.get(`${rootPath()}lines.json`).then((response) => {
       self.lines = response.data
     })
   },

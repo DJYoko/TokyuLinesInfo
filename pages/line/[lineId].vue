@@ -55,19 +55,17 @@ export default {
   },
   mounted() {
     // isLoadedを仕込む
-    axios
-      .get(`${rootPath(location.href)}lineStations.json`)
-      .then((response) => {
-        this.lineStations = response.data.filter((station) => {
-          return station.lineId === this.lineId
-        })
+    axios.get(`${rootPath()}lineStations.json`).then((response) => {
+      this.lineStations = response.data.filter((station) => {
+        return station.lineId === this.lineId
       })
+    })
 
-    axios.get(`${rootPath(location.href)}stations.json`).then((response) => {
+    axios.get(`${rootPath()}stations.json`).then((response) => {
       this.stations = response.data
     })
 
-    axios.get(`${rootPath(location.href)}lines.json`).then((response) => {
+    axios.get(`${rootPath()}lines.json`).then((response) => {
       this.line = getObjectById(response.data, this.lineId)
     })
   },

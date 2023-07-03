@@ -1,13 +1,13 @@
 /* nuxt.config.js */
 // `DEPLOY_ENV` が `GH_PAGES` の場合のみ `router.base = '/<repository-name>/'` を追加する
-const routerBase =
-  process.env.DEPLOY_ENV === 'GITHUB' ? '/TokyuLinesInfo/' : '/'
-console.log({ routerBase })
+const routerBase = process.env.DEPLOY_ENV.match('GITHUB')
+  ? '/TokyuLinesInfo/'
+  : '/'
+console.log({ routerBase, 'process.env.DEPLOY_ENV': process.env.DEPLOY_ENV })
 
 export default {
-  target: 'static',
-  static: {
-    baseDir: '/docs',
+  router: {
+    base: routerBase, // your-repo-nameはGitHubリポジトリの名前に置き換えてください。
   },
   buildModules: ['@nuxtjs/style-resources'],
   styleResources: {

@@ -20,5 +20,6 @@ Tokyu Lines information powered by Nuxt.js.
 ## commands
 
 - npx nuxi dev
-- npx nuxi build
+- set DEPLOY_ENV=GITHUB && npx nuxi build
 - set DEPLOY_ENV=GITHUB && npx nuxi generate
+- set DEPLOY_ENV=GITHUB && npx nuxi build && npx nuxi generate

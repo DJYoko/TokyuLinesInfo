@@ -55,22 +55,18 @@ export default {
   },
   methods: {
     async getData() {
-      await axios
-        .get(`${rootPath(location.href)}stations.json`)
-        .then((response) => {
-          const station = getObjectById(response.data, this.stationId)
-          this.lat = station.lat
-          this.lon = station.lon
-          this.name = station.name
-          this.lineIds = station.lineIds
+      await axios.get(`${rootPath()}stations.json`).then((response) => {
+        const station = getObjectById(response.data, this.stationId)
+        this.lat = station.lat
+        this.lon = station.lon
+        this.name = station.name
+        this.lineIds = station.lineIds
+      })
+      await axios.get(`${rootPath()}lines.json`).then((response) => {
+        this.lines = response.data.filter((line) => {
+          return this.lineIds.indexOf(line.id) !== -1
         })
-      await axios
-        .get(`${rootPath(location.href)}lines.json`)
-        .then((response) => {
-          this.lines = response.data.filter((line) => {
-            return this.lineIds.indexOf(line.id) !== -1
-          })
-        })
+      })
     },
   },
   computed: {

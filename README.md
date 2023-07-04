@@ -15,7 +15,7 @@ Tokyu Lines information powered by Nuxt.js.
 ## source
 
 - GitHub https://github.com/DJYoko/TokyuLinesInfo
-- Demo https://djyoko.github.io/TokyuLinesInfo
+- Demo https://djyoko.github.io/TokyuLinesInfo (closed)
 
 ## commands
 

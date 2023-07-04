@@ -15,7 +15,9 @@
             <line-unit
               :line-id="line.id"
               :line-name="line.name"
-              :backgroundColor="line.backgroundColor"
+              :backgroundColor="
+                line.backgroundColor ? line.backgroundColor : ''
+              "
               :textColor="line.textColor"
             />
           </div>
@@ -27,7 +29,8 @@
 
 <script>
 import axios from 'axios'
-import util from '~/plugins/util'
+import rootPath from '@/assets/scripts/rootPath'
+import getObjectById from '@/assets/scripts/getObjectById'
 
 export default {
   name: 'StationId',
@@ -51,25 +54,19 @@ export default {
     }
   },
   methods: {
-    getData() {
-      axios
-        .get(`${util.rootPath(location.href)}stations.json`)
-        .then((response) => {
-          const station = util.getObjectById(response.data, this.stationId)
-          this.lat = station.lat
-          this.lon = station.lon
-          this.name = station.name
-          this.lineIds = station.lineIds
+    async getData() {
+      await axios.get(`${rootPath()}stations.json`).then((response) => {
+        const station = getObjectById(response.data, this.stationId)
+        this.lat = station.lat
+        this.lon = station.lon
+        this.name = station.name
+        this.lineIds = station.lineIds
+      })
+      await axios.get(`${rootPath()}lines.json`).then((response) => {
+        this.lines = response.data.filter((line) => {
+          return this.lineIds.indexOf(line.id) !== -1
         })
-        .then(() => {
-          axios
-            .get(`${util.rootPath(location.href)}lines.json`)
-            .then((response) => {
-              this.lines = response.data.filter((line) => {
-                return this.lineIds.indexOf(line.id) !== -1
-              })
-            })
-        })
+      })
     },
   },
   computed: {
@@ -84,7 +81,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '~assets/variables';
+@import '@/assets/variables.scss';
 .back-link {
   text-align: left;
 }

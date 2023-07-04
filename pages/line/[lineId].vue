@@ -32,7 +32,9 @@
 
 <script>
 import axios from 'axios'
-import util from '~/plugins/util'
+import rootPath from '@/assets/scripts/rootPath'
+import getObjectById from '@/assets/scripts/getObjectById'
+
 export default {
   name: 'LineIndex',
   components: {
@@ -52,22 +54,19 @@ export default {
     }
   },
   mounted() {
-    axios
-      .get(`${util.rootPath(location.href)}lineStations.json`)
-      .then((response) => {
-        this.lineStations = response.data.filter((station) => {
-          return station.lineId === this.lineId
-        })
+    // isLoadedを仕込む
+    axios.get(`${rootPath()}lineStations.json`).then((response) => {
+      this.lineStations = response.data.filter((station) => {
+        return station.lineId === this.lineId
       })
+    })
 
-    axios
-      .get(`${util.rootPath(location.href)}stations.json`)
-      .then((response) => {
-        this.stations = response.data
-      })
+    axios.get(`${rootPath()}stations.json`).then((response) => {
+      this.stations = response.data
+    })
 
-    axios.get(`${util.rootPath(location.href)}lines.json`).then((response) => {
-      this.line = util.getObjectById(response.data, this.lineId)
+    axios.get(`${rootPath()}lines.json`).then((response) => {
+      this.line = getObjectById(response.data, this.lineId)
     })
   },
   methods: {},
@@ -79,9 +78,15 @@ export default {
       return this.line.id.toUpperCase()
     },
     symbolStyle() {
+      if (!this.line) {
+        return {}
+      }
+
       return {
-        backgroundColor: this.line.backgroundColor,
-        color: this.line.textColor,
+        backgroundColor: this.line.backgroundColor
+          ? this.line.backgroundColor
+          : '',
+        color: this.line.textColor ? this.line.textColor : '',
       }
     },
     getStationNameById() {
@@ -100,7 +105,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '~assets/variables';
+@import '@/assets/variables.scss';
 .line-title-block {
   position: relative;
   height: $itemMargin * 4;

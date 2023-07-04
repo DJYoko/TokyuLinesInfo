@@ -1,3 +1,6 @@
 export default function ({ redirect }) {
-  return redirect('/')
+  const routerBase = process.env.DEPLOY_ENV.match('GITHUB')
+    ? '/TokyuLinesInfo/'
+    : '/'
+  return redirect(routerBase)
 }

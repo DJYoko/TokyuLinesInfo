@@ -9,7 +9,7 @@
     ></div>
     <div class="line-list">
       <div class="container">
-        <div class="row">
+        <div class="row" v-if="lines.length > 0">
           <div
             class="col-6 col-sm-3 col-lg-2 line-list-item-wrapper"
             v-for="line in lines"
@@ -31,46 +31,8 @@
   </div>
 </template>
 
-<script>
-import axios from 'axios'
-import util from '~/plugins/util'
-import constants from '@/assets/constants'
-import backgroundImage from '~/assets/pp_tamagawahukei_retouched.jpg'
-export default {
-  name: 'index',
-  components: {
-    lineUnit: () => import('@/components/lineUnit'),
-  },
-  data: () => {
-    return {
-      backgroundImageUrl: backgroundImage,
-      isLoading: true,
-      lines: [],
-    }
-  },
-  mounted() {
-    const self = this
-    axios.get(`${util.rootPath(location.href)}lines.json`).then((response) => {
-      self.lines = response.data
-    })
-  },
-  head() {
-    return {
-      title: constants.siteName,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: constants.siteName,
-        },
-      ],
-    }
-  },
-}
-</script>
-
 <style scoped lang="scss">
-@import '~assets/variables';
+@import '@/assets/variables.scss';
 h1 {
   color: $textColor;
   font-weight: 100;
@@ -103,3 +65,41 @@ h1 {
   text-align: center;
 }
 </style>
+
+<script>
+import axios from 'axios'
+import rootPath from '@/assets/scripts/rootPath'
+
+import backgroundImage from '~/assets/pp_tamagawahukei_retouched.jpg'
+export default {
+  name: 'index',
+  components: {
+    lineUnit: () => import('@/components/lineUnit'),
+  },
+  data: () => {
+    return {
+      backgroundImageUrl: backgroundImage,
+      isLoading: true,
+      lines: [],
+    }
+  },
+  mounted() {
+    const self = this
+    axios.get(`${rootPath()}lines.json`).then((response) => {
+      self.lines = response.data
+    })
+  },
+  head() {
+    return {
+      title: 'Tokyu Lines Info',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Tokyu Lines Info',
+        },
+      ],
+    }
+  },
+}
+</script>

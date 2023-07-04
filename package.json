@@ -1,17 +1,17 @@
 {
-    "name": "tokyulinesinfo",
-    "scripts": {
-        "dev": "cross-env IS_DEVELOP=true nuxt",
-        "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
-        "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate"
-    },
-    "dependencies": {
-        "nuxt": "^3.0.0"
-    },
-    "devDependencies": {
-        "axios": "^0.27.2",
-        "cross-env": "^7.0.3",
-        "node-sass": "^7.0.3",
-        "sass-loader": "^13.0.0"
-    }
+  "name": "tokyulinesinfo",
+  "dependencies": {
+    "@babel/types": "^7.22.5",
+    "core-js": "^3.31.0",
+    "nuxt": "^3.6.1",
+    "typescript": "^4.0.5"
+  },
+  "devDependencies": {
+    "@nuxtjs/style-resources": "^1.2.1",
+    "axios": "^0.27.2",
+    "cross-env": "^7.0.3",
+    "node-sass": "^7.0.3",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2"
+  }
 }

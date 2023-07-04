@@ -3,7 +3,7 @@
     <back-link></back-link>
     <div class="container">
       <h2>web framework &amp; libraries</h2>
-      <ul style="padding-left: 20px;">
+      <ul style="padding-left: 20px">
         <li>
           Vue
           <a href="https://vuejs.org/" target="_blank" rel="noreferrer">
@@ -25,7 +25,7 @@
       </ul>
       <hr />
       <h4>visual materials</h4>
-      <ul style="padding-left: 20px;">
+      <ul style="padding-left: 20px">
         <li>
           station &amp; line data:
           <a href="https://www.tokyu.co.jp/" target="_blank" rel="noreferrer">
@@ -46,7 +46,7 @@
       </ul>
       <hr />
       <h4>source</h4>
-      <ul style="padding-left: 20px;">
+      <ul style="padding-left: 20px">
         <li>
           GitHub
           <a
@@ -86,7 +86,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '~assets/variables';
 .back-link {
   text-align: left;
 }
